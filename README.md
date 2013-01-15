@@ -1,4 +1,5 @@
 datastream
 ==========
 
-streams measurements from a model/simulation to one or many views
+library for exporting telemetry data from simulations
+and build up processing graphs for statistical data

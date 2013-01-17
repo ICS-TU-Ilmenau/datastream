@@ -30,6 +30,11 @@ public @interface AutoWire {
 	 */
 	boolean unique() default false;
 	/**
+	 * The prefix for the name if it should be unique. Object.toString is used to generate the
+	 * prefix. If unique is false (default), the prefix is ignored.
+	 */
+	boolean prefix() default false;
+	/**
 	 * The suffix to append to the name if it is to be made unique. If unique is false (default),
 	 * the suffix is ignored.
 	 */

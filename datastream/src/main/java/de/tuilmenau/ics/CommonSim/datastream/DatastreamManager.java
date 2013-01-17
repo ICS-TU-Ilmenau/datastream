@@ -183,24 +183,32 @@ public class DatastreamManager
 	/**
 	 * Get a unique name for a data stream node. The name will be of the form "prefix.id.suffix". 
 	 * 
+	 * @param toStringPrefix Indicates if the prefix 
 	 * @param prefix The prefix of the name
 	 * @param obj    The object for which to get the name.
 	 * @param suffix The suffix of the name.
 	 * @return A string suitable as a unique name for this prefix, suffix and object.
 	 */
-	public static String getUniqueName(String prefix, Object obj, String suffix)
+	public static String getUniqueName(boolean toStringPrefix, String prefix, Object obj, String suffix)
 	{
-        String name = prefix;                                                                                                                                                                                
-        if (name != null) {                                                                                                                                                                                  
-                name += "."+Integer.toHexString(System.identityHashCode(obj));                                                                                                                            
-        }                                                                                                                                                                                                    
-        else {                                                                                                                                                                                               
-                name = Integer.toHexString(System.identityHashCode(obj));                                                                                                                                 
-        }                                                                                                                                                                                                    
-        if (suffix != null && suffix != "") {                                                                                                                                                                                
-                name += "."+suffix;                                                                                                                                                                          
-        }                                                                                                                                                                                                    
-        return name; 
+		String name = prefix;
+
+		if(toStringPrefix) {
+			name = obj.toString() +"." +prefix;
+		} else {
+			name = prefix;
+		}
+
+		if (name != null) {
+			name += "."+Integer.toHexString(System.identityHashCode(obj));
+		}
+		else {
+			name = Integer.toHexString(System.identityHashCode(obj));
+		}
+		if ((suffix != null) && !"".equals(suffix)) {
+			name += "."+suffix;
+		}
+		return name;
 	}
 	
 	/**
@@ -254,7 +262,7 @@ public class DatastreamManager
 					// TODO implement input name handling as in
 					// AbstractComplexDoubleNode
 					// implement unique name handling
-					String name = (annot.unique() ? getUniqueName(annot.name(),
+					String name = (annot.unique() ? getUniqueName(annot.prefix(), annot.name(),
 							obj, annot.suffix()) : annot.name());
 					Object node = open(cls, name);
 					// we'll only reach this if the type is compatible anyway

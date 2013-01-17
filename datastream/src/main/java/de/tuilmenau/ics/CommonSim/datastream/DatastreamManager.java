@@ -76,7 +76,7 @@ public class DatastreamManager
 		INode<?> n = mNodes.remove(id);
 		if (n!=null) {
 			for (IStreamChangeListener l : mListeners) {
-				l.registered(id, n);
+				l.unregistered(id, n);
 			}
 		}
 	}

@@ -34,6 +34,7 @@
   	<name>Integrated Communication Systems Group, TU Ilmenau</name>
   	<url>http://www.tu-ilmenau.de/ics</url>
   </organization>
+  <packaging>bundle</packaging>
   <dependencies>
     <dependency>
       <groupId>junit</groupId>
@@ -61,6 +62,17 @@
           <optimize>true</optimize>
         </configuration>
       </plugin>
+	  <plugin>
+	    <groupId>org.apache.felix</groupId>
+	    <artifactId>maven-bundle-plugin</artifactId>
+	    <extensions>true</extensions>
+	    <configuration>
+	      <instructions>
+	      	<Bundle-SymbolicName>${pom.artifactId}</Bundle-SymbolicName>
+	      	<Export-Package>*</Export-Package>
+	      </instructions>
+	    </configuration>
+	  </plugin>      
     </plugins>
   </build>
   <reporting>

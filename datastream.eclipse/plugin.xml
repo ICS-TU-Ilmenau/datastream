@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+
+   <extension
+         point="org.eclipse.ui.views">
+	  <category 
+           id="de.tuilmenau.ics.datastream.view"
+           name="Datastream">
+      </category>
+      <view
+            name="Datastream Viewer"
+            class="de.tuilmenau.ics.datastream.view.DatastreamView"
+            id="de.tuilmenau.ics.datastream.view.DatastreamView"
+            category="de.tuilmenau.ics.datastream.view">
+      </view>
+   </extension>
+
+   <extension
+         point="org.eclipse.ui.editors">
+      <editor
+            class="de.tuilmenau.ics.datastream.editor.DatastreamEditor"
+            default="false"
+            id="de.tuilmenau.ics.datastream.editor.DatastreamEditor"
+            name="Datastream Editor">
+      </editor>
+   </extension>
+   
+</plugin>

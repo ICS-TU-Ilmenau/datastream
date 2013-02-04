@@ -63,12 +63,12 @@ public class Activator extends AbstractUIPlugin {
 	public static void log(Object from, String message)
 	{
 		Status status = new Status(Status.OK, PLUGIN_ID, from +" - " +message);
-		plugin.getLog().log(status);
+		if(plugin != null) plugin.getLog().log(status);
 	}
 	
 	public static void err(Object from, String message, Throwable cause)
 	{
 		Status status = new Status(Status.ERROR, PLUGIN_ID, from +" - " +message, cause);
-		plugin.getLog().log(status);
+		if(plugin != null) plugin.getLog().log(status);
 	}
 }

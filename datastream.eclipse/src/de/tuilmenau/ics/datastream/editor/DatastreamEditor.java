@@ -99,19 +99,16 @@ public class DatastreamEditor extends SharedHeaderFormEditor
 	@Override
 	public void doSave(IProgressMonitor monitor)
 	{
-		// TODO Auto-generated method stub
 	}
 
 	@Override
 	public void doSaveAs()
 	{
-		// TODO Auto-generated method stub
 	}
 
 	@Override
 	public boolean isSaveAsAllowed()
 	{
-		// TODO Auto-generated method stub
 		return false;
 	}
 

@@ -76,7 +76,6 @@ public abstract class AbstractFileNode implements INode<Object> // deriving from
 	@Override
 	public String[] getInputNames() 
 	{
-		// TODO Auto-generated method stub
 		return null;
 	}
 
